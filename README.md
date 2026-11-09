@@ -1,12 +1,15 @@
-# 💠 hello-dotnet — .NET 10 → GitHub Releases
+# hello-dotnet
 
-Учебный CI/CD-проект на C#/.NET. GitHub Actions восстанавливает зависимости, собирает приложение и запускает xUnit-тесты. По тегу версии приложение публикуется как самостоятельный executable для Linux x64 и Windows x64.
+[![CI](https://github.com/anitouchq/hello-dotnet/actions/workflows/ci.yml/badge.svg)](https://github.com/anitouchq/hello-dotnet/actions)
+![.NET](https://img.shields.io/badge/.NET-10-512BD4?logo=dotnet&logoColor=white)
+
+Учебный CI/CD-проект на C#/.NET. GitHub Actions восстанавливает зависимости, собирает приложение и запускает unit-тесты xUnit. При push тега версии приложение публикуется как самостоятельный executable для Linux x64 и Windows x64.
 
 ## CI checks
 
 1. `dotnet restore` — восстановление зависимостей.
-2. `dotnet build -c Release` — release-сборка.
-3. `dotnet test` — модульные тесты xUnit.
+2. `dotnet build -c Release` — сборка в конфигурации Release.
+3. `dotnet test` — запуск тестов xUnit.
 
 ## Release artifacts
 
@@ -15,18 +18,16 @@
 | Linux x64 | `hello-dotnet-linux-x64.tar.gz` |
 | Windows x64 | `hello-dotnet-windows-x64.zip` |
 
-Публикация использует self-contained single-file deployment: пользователю не нужно отдельно устанавливать .NET Runtime.
+Используется self-contained single-file deployment: пользователю не нужно отдельно устанавливать .NET Runtime.
 
 ## Как создать Release
-
-Отправьте тег вида `v1.0.0`:
 
 ```bash
 git tag v1.0.0
 git push origin v1.0.0
 ```
 
-Workflow сначала выполняет CI. Затем Linux и Windows runner'ы собирают артефакты параллельно, а последний job прикладывает архивы к GitHub Release.
+Workflow сначала выполняет CI. Затем Linux и Windows runner'ы собирают артефакты параллельно, а отдельный job прикладывает архивы к [GitHub Release](https://github.com/anitouchq/hello-dotnet/releases).
 
 ## Локальная разработка
 
@@ -39,12 +40,21 @@ dotnet test tests/HelloDotnet.Tests.csproj -c Release
 dotnet run --project src/HelloDotnet.csproj
 ```
 
-## Почему .NET 10
+## Структура проекта
 
-Проект использует .NET 10 LTS, а не .NET 8 из старого примера: это актуальная LTS-линия с более длительным периодом поддержки.
+| Файл или каталог | Назначение |
+|---|---|
+| `.github/workflows/ci.yml` | CI-проверки и публикация Linux/Windows Release |
+| `src/Program.cs` | Точка входа приложения |
+| `src/Greeting.cs` | Логика приветствия |
+| `src/HelloDotnet.csproj` | Настройки сборки приложения |
+| `tests/GreetingTests.cs` | Unit-тесты логики приветствия |
+| `tests/HelloDotnet.Tests.csproj` | Настройки тестового проекта и ссылка на приложение |
+| `.gitignore` | Локальные файлы .NET и IDE, исключаемые из Git |
 
-## Permissions
+## Результаты
 
-Для CI достаточно `contents: read`. Публикационный job получает `contents: write` для создания GitHub Release через встроенный `GITHUB_TOKEN`.
+- [GitHub Actions](https://github.com/anitouchq/hello-dotnet/actions)
+- [Опубликованные релизы](https://github.com/anitouchq/hello-dotnet/releases)
 
 [Главный каталог CI/CD проектов](https://github.com/anitouchq/CI-CD-Pipelines)
