@@ -58,3 +58,33 @@ dotnet run --project src/HelloDotnet.csproj
 - [Опубликованные релизы](https://github.com/anitouchq/hello-dotnet/releases)
 
 [Главный каталог CI/CD проектов](https://github.com/anitouchq/CI-CD-Pipelines)
+
+## Скриншоты
+
+Добавьте изображения в каталог `screenshots/`:
+
+- `screenshots/application.png` — пример запуска приложения;
+- `screenshots/github-actions-release.png` — успешная сборка Linux и Windows;
+- `screenshots/github-release.png` — опубликованный Release с архивами.
+
+![Пример работы приложения](screenshots/application.png)
+![Сборка GitHub Actions](screenshots/github-actions-release.png)
+![Опубликованный GitHub Release](screenshots/github-release.png)
+
+## Как создать Release-сборку
+
+Убедитесь, что изменения находятся в `main`, после чего создайте и отправьте тег:
+
+```bash
+git checkout main
+git pull origin main
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+Workflow запускается для тегов `v*`: выполняет restore, build и xUnit tests, затем публикует self-contained single-file сборки для Linux x64 и Windows x64. Готовые архивы появятся в GitHub Release.
+
+Для следующей публикации увеличьте версию, например до `v1.0.1`. Каждый тег должен быть уникальным.
+
+- [GitHub Actions](https://github.com/anitouchq/hello-dotnet/actions)
+- [GitHub Releases](https://github.com/anitouchq/hello-dotnet/releases)
