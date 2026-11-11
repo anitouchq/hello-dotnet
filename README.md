@@ -57,4 +57,19 @@ dotnet run --project src/HelloDotnet.csproj
 - [GitHub Actions](https://github.com/anitouchq/hello-dotnet/actions)
 - [Опубликованные релизы](https://github.com/anitouchq/hello-dotnet/releases)
 
+
+## Скриншоты
+
+### Пример запуска приложения
+
+![Пример запуска приложения](screenshots/application.png)
+
+### Успешная сборка Linux и Windows
+
+![Успешная сборка Linux и Windows](screenshots/github-actions-release.png)
+
+### GitHub Release с архивами для двух ОС
+
+![GitHub Release с архивами для двух ОС](screenshots/github-release.png)
+
 [Главный каталог CI/CD проектов](https://github.com/anitouchq/CI-CD-Pipelines)
