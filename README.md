@@ -60,16 +60,16 @@ dotnet run --project src/HelloDotnet.csproj
 
 ## Скриншоты
 
-### Пример запуска приложения
+**Actions:**
 
-![Пример запуска приложения](screenshots/application.png)
+![GitHub Actions — успешная сборка](screenshots/github-actions-release.png)
 
-### Успешная сборка Linux и Windows
-
-![Успешная сборка Linux и Windows](screenshots/github-actions-release.png)
-
-### GitHub Release с архивами для двух ОС
+**Release v1.0.0:**
 
 ![GitHub Release с архивами для двух ОС](screenshots/github-release.png)
+
+### Запуск приложения
+
+![Запуск приложения](screenshots/application.png)
 
 [Главный каталог CI/CD проектов](https://github.com/anitouchq/CI-CD-Pipelines)
