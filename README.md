@@ -40,6 +40,11 @@ dotnet test tests/HelloDotnet.Tests.csproj -c Release
 dotnet run --project src/HelloDotnet.csproj
 ```
 
+dotnet run --project src/HelloDotnet.csproj
+```
+
+![Запуск приложения](screenshots/application.png)
+
 ## Структура проекта
 
 | Файл или каталог | Назначение |
@@ -67,9 +72,5 @@ dotnet run --project src/HelloDotnet.csproj
 **Release v1.0.0:**
 
 ![GitHub Release с архивами для двух ОС](screenshots/github-release.png)
-
-### Запуск приложения
-
-![Запуск приложения](screenshots/application.png)
 
 [Главный каталог CI/CD проектов](https://github.com/anitouchq/CI-CD-Pipelines)
